@@ -1,0 +1,83 @@
+details:
+    page_title: Empty Dashboard
+layout:
+    - row_1_of_3:
+        - col_1_of_4 flip-time-5:
+            - tile_template: line_chart
+              tile_id: line_chart_reg1
+              title: ML66 REG1
+              classes:
+            
+            - tile_template: simple_percentage
+              tile_id: precentage_chart_reg1
+              title: ML66 REG1
+
+        - col_1_of_4 flip-time-5:
+            - tile_template: line_chart
+              tile_id: id_2
+              title: ML66 REG2
+              classes:
+
+            - tile_template: simple_percentage
+              tile_id: id_2_1
+              title: ML66 REG2
+
+        - col_1_of_4 flip-time-5:
+            - tile_template: line_chart
+              tile_id: id_3
+              title: AOD HOURLY
+              classes:
+
+            - tile_template: simple_percentage
+              tile_id: id_3_1
+              title: AOD HOURLY
+
+        - col_1_of_4:
+            - tile_template: advanced_plot
+              tile_id: id_4
+              title: bar_chart
+              classes:
+  
+    - row_1_of_3:
+        - col_1_of_2:
+            - tile_template: empty
+              tile_id: empty
+              title: empty Tile
+              classes:
+        - col_1_of_2:
+            - tile_template: empty
+              tile_id: empty
+              title: empty Tile
+              classes:
+
+
+    - row_1_of_3:
+        - col_1_of_3 flip-time-5:
+            - tile_template: line_chart
+              tile_id: id_5
+              title: AOD DAILY
+              classes:
+
+            - tile_template: simple_percentage
+              tile_id: id_5_1
+              title: AOD DAILY
+
+        - col_1_of_3 flip-time-5:
+            - tile_template: line_chart
+              tile_id: id_6
+              title: ML66 DAILY
+              classes:
+
+            - tile_template: simple_percentage
+              tile_id: id_6_1
+              title: ML66 DAILY
+        
+        - col_1_of_3 flip-time-5:
+            - tile_template: line_chart
+              tile_id: id_7
+              title: SWAT REGRESSION TRIAL
+              classes:
+
+            - tile_template: simple_percentage
+              tile_id: id_7_1
+              title: SWAT REGRESSION TRIAL
