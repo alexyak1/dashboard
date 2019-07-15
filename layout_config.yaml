@@ -11,25 +11,25 @@ layout:
             - tile_template: simple_percentage
               tile_id: precentage_chart_reg1
               title: ML66 REG1
-
+            
         - col_1_of_4 flip-time-5:
             - tile_template: line_chart
-              tile_id: id_2
+              tile_id: line_chart_reg2
               title: ML66 REG2
               classes:
 
             - tile_template: simple_percentage
-              tile_id: id_2_1
+              tile_id: precentage_chart_reg2
               title: ML66 REG2
 
         - col_1_of_4 flip-time-5:
             - tile_template: line_chart
-              tile_id: id_3
+              tile_id: line_chart_aod
               title: AOD HOURLY
               classes:
 
             - tile_template: simple_percentage
-              tile_id: id_3_1
+              tile_id: precentage_chart_aod
               title: AOD HOURLY
 
         - col_1_of_4:
@@ -39,12 +39,24 @@ layout:
               classes:
   
     - row_1_of_3:
-        - col_1_of_2:
-            - tile_template: empty
-              tile_id: empty
-              title: empty Tile
+        - col_1_of_4:
+            - tile_template: just_value
+              tile_id: health_check_ml66_reg1
+              title: ML66 REG1
+
+        - col_1_of_4:
+            - tile_template: just_value
+              tile_id: health_check_ml66_reg2
+              title: ML66 REG2
               classes:
-        - col_1_of_2:
+
+        - col_1_of_4:
+            - tile_template: just_value
+              tile_id: health_check_aod
+              title: AOD HOURLY
+              classes:
+
+        - col_1_of_4:
             - tile_template: empty
               tile_id: empty
               title: empty Tile
@@ -54,30 +66,30 @@ layout:
     - row_1_of_3:
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
-              tile_id: id_5
+              tile_id: line_chart_aod_daily
               title: AOD DAILY
               classes:
 
             - tile_template: simple_percentage
-              tile_id: id_5_1
+              tile_id: precentage_chart_aod_daily
               title: AOD DAILY
 
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
-              tile_id: id_6
+              tile_id: line_chart_ml66_daily
               title: ML66 DAILY
               classes:
 
             - tile_template: simple_percentage
-              tile_id: id_6_1
+              tile_id: precentage_chart_ml66_daily
               title: ML66 DAILY
         
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
-              tile_id: id_7
+              tile_id: line_chart_swat
               title: SWAT REGRESSION TRIAL
               classes:
 
             - tile_template: simple_percentage
-              tile_id: id_7_1
+              tile_id: precentage_chart_swat
               title: SWAT REGRESSION TRIAL

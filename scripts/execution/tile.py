@@ -22,8 +22,6 @@ def default_line_config(tileId):
     update_tile_config(tileId, data_json)
 
 def update_tile(tileName, tileId, content):
-
-
     API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
     params = {
         'tile': tileName, 
@@ -46,9 +44,7 @@ def update_tile_config(tileId, value):
 
 def percentage_chart_color_config(success_rate):
 
-    value = {
-        'big_value_color': ''
-    }
+    value = {}
     if int(success_rate) > 98:
         value['big_value_color'] = '#27ae60'
         value['fading_background'] = False
@@ -59,18 +55,31 @@ def percentage_chart_color_config(success_rate):
     color_value_json = json.dumps(value)
     return color_value_json
 
-def fetch_data(url):
+def health_check_color_config(health_check):
+
+    value = {}
+    if health_check:
+        value["just-value-color"] = "#27ae60"
+        value['fading_background'] = False
+    else:
+        value["just-value-color"] = "#c0392b"
+        value['fading_background'] = True
+
+    return json.dumps(value)
+
+
+def line_chart_fetch_data(url, include_finished=True):
     rawData = req.get(url)
 
     testCases = rawData.json()
-    testCases.reverse()
+    testCases.reverse()    
 
     extractedData = {
         "series": [] 
     }
-
+    
     for index, testCase in enumerate((testCases)):
-        if testCase["finished"] == False:
+        if not testCase["finished"] and not include_finished:
             continue 
         extractedData["passed"] = testCase["passed"]
         extractedData["total"] = testCase["total"]
@@ -80,3 +89,13 @@ def fetch_data(url):
         extractedData["finished"] = testCase["finished"]
     
     return extractedData
+
+def jenkins_running_check(url):
+    rawData = req.get(url)
+
+    data = rawData.json()
+
+    if data["result"] == None:
+        return True
+    else:
+        return False

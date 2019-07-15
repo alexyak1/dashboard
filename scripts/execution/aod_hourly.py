@@ -5,10 +5,9 @@ import line_tile_updater as updater
 
 
 maas_url = 'https://mwn-maas.seln.wh.rnd.internal.ericsson.com'
-line_chart_id = 'line_chart_reg1'
-percentage_chart_id = 'precentage_chart_reg1'
-params = 'ciOfficial=true&program=ML66&createdTimestamp=-3&testLoopType=REG1&aggregated=&column=testLoop&column2=rstate&row=hardware'
-
+line_chart_id = 'line_chart_aod'
+percentage_chart_id = 'precentage_chart_aod'
+params = 'ciOfficial=true&program=AOD&createdTimestamp=-3&testLoopType=HOURLY&aggregated=&column=testLoop&column2=rstate&row=hardware'
 def main():
     updater.update_tile(maas_url, line_chart_id, percentage_chart_id, params)
 
