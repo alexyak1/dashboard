@@ -4,6 +4,36 @@ API_KEY = '755c3de7f9b94afdbc003349c2d4ba3a'
 API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
+def default_advanced_config(tileId):
+    tile_config = {
+        'seriesDefaults': {
+            'trendline': {
+                'show': False 
+            }, 
+            'renderer': 'BarRenderer', 
+            'pointLabels': {
+                'show': True, 
+                'location': 'e', 
+                'edgeTolerance': -15
+            }, 
+            'shadowAngle': 135, 
+            'rendererOptions': {
+                'barDirection': 'vertical'
+            }
+        }, 
+        'grid': {
+            'gridLineColor' : '#25282D',
+            'background' : '#25282D', 
+            'borderColor' : '#25282D'
+        },
+        'axes': {
+            'xaxis': { 
+                'renderer': 'CategoryAxisRenderer'
+            }
+        }
+    }
+    data_json = json.dumps(tile_config)   
+    update_tile_config(tileId, data_json)
 
 def default_line_config(tileId):
     tile_config = {
@@ -22,7 +52,7 @@ def default_line_config(tileId):
     update_tile_config(tileId, data_json)
 
 def update_tile(tileName, tileId, content):
-    API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
+
     params = {
         'tile': tileName, 
         'key': tileId, 
@@ -90,12 +120,12 @@ def line_chart_fetch_data(url, include_finished=True):
     
     return extractedData
 
-def jenkins_running_check(url):
+def jenkins_running_check(url, resultParam = None):
     rawData = req.get(url)
 
     data = rawData.json()
 
-    if data["result"] == None:
+    if data["result"] == resultParam:
         return True
     else:
         return False
