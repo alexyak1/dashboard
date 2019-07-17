@@ -8,6 +8,7 @@ def main():
     tileId = 'health_check_aod'    
     title = 'AOD HOURLY'
     updater.update_tile(url, tileId, title)
+    updater.multi_value_list('health_checks')
     
 
 if __name__ == "__main__":

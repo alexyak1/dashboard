@@ -1,0 +1,11 @@
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/reg1.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/reg2.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/aod_hourly.py >/dev/null 2>&1
+
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/health_check_aod.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/health_check_reg1.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/health_check_reg2.py >/dev/null 2>&1
+
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/aod_daily.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/ml66_daily.py >/dev/null 2>&1
+* * * * * /usr/bin/python2.7 /home/eolojes/.tipboard/scripts/execution/swat_reg.py >/dev/null 2>&1

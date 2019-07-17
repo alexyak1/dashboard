@@ -2,7 +2,7 @@ details:
     page_title: Empty Dashboard
 layout:
     - row_1_of_3:
-        - col_1_of_4 flip-time-5:
+        - col_1_of_3 flip-time-5:
             - tile_template: line_chart
               tile_id: line_chart_reg1
               title: ML66 REG1
@@ -12,7 +12,7 @@ layout:
               tile_id: precentage_chart_reg1
               title: ML66 REG1
             
-        - col_1_of_4 flip-time-5:
+        - col_1_of_3 flip-time-5:
             - tile_template: line_chart
               tile_id: line_chart_reg2
               title: ML66 REG2
@@ -22,7 +22,7 @@ layout:
               tile_id: precentage_chart_reg2
               title: ML66 REG2
 
-        - col_1_of_4 flip-time-5:
+        - col_1_of_3 flip-time-5:
             - tile_template: line_chart
               tile_id: line_chart_aod
               title: AOD HOURLY
@@ -31,37 +31,17 @@ layout:
             - tile_template: simple_percentage
               tile_id: precentage_chart_aod
               title: AOD HOURLY
-
-        - col_1_of_4:
-            - tile_template: advanced_plot
-              tile_id: id_4
-              title: bar_chart
-              classes:
   
     - row_1_of_3:
-        - col_1_of_4:
-            - tile_template: just_value
-              tile_id: health_check_ml66_reg1
-              title: ML66 REG1
-
-        - col_1_of_4:
-            - tile_template: just_value
-              tile_id: health_check_ml66_reg2
-              title: ML66 REG2
-              classes:
-
-        - col_1_of_4:
-            - tile_template: just_value
-              tile_id: health_check_aod
-              title: AOD HOURLY
-              classes:
-
-        - col_1_of_4:
-            - tile_template: empty
-              tile_id: empty
-              title: empty Tile
-              classes:
-
+        - col_1_of_2:
+            - tile_template: fancy_listing
+              tile_id: health_checks
+              title: "HEALTH CHECKS"
+        
+        - col_1_of_2:
+            - tile_template: listing
+              tile_id: daily_triggers
+              title: "ML66 DAILY - NEXT TRIGGER"
 
     - row_1_of_3:
         - col_1_of_3 flip-time-5:
