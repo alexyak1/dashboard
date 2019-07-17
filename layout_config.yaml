@@ -7,20 +7,13 @@ layout:
               tile_id: line_chart_reg1
               title: ML66 REG1
               classes:
-            
-            - tile_template: simple_percentage
-              tile_id: precentage_chart_reg1
-              title: ML66 REG1
-            
+
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
               tile_id: line_chart_reg2
               title: ML66 REG2
               classes:
 
-            - tile_template: simple_percentage
-              tile_id: precentage_chart_reg2
-              title: ML66 REG2
 
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
@@ -33,15 +26,20 @@ layout:
               title: AOD HOURLY
   
     - row_1_of_3:
-        - col_1_of_2:
-            - tile_template: fancy_listing
+        - col_1_of_4:
+            - tile_template: fancy_listing_1
               tile_id: health_checks
               title: "HEALTH CHECKS"
         
-        - col_1_of_2:
+        - col_2_of_4:
             - tile_template: listing
               tile_id: daily_triggers
               title: "ML66 DAILY - NEXT TRIGGER"
+        - col_1_of_4:
+            - tile_template: fancy_listing_1
+              tile_id: health_checks_triggers
+              title: "HEALTH CHECKS"
+
 
     - row_1_of_3:
         - col_1_of_3 flip-time-5:

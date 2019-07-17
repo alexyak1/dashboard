@@ -3,10 +3,17 @@ import tile
 import json
 import update_health_check_list as updater
 
+def get_health_status(urls):
+
+    for url in urls:
+        status = tile.jenkins_running_check(url)
+        if not status:
+            return False
+
+    return True
 
 def main():
     tileId = "health_checks"
-    converter = {True : "RUNNING", False: "DOWN"}
     converter_color = {True : "#27ae60", False: "#c0392b"}
 
     healthJobs = {
@@ -19,12 +26,12 @@ def main():
     config_data = []
     
     for title, urls in healthJobs.iteritems():
-        healthStatus = updater.get_health_status(urls)
-        data.append({"label" : converter[healthStatus], "text": title})
+        healthStatus = get_health_status(urls)
+        data.append({"label" : title})
         config_data.append({"label_color": converter_color[healthStatus], "center": True})
 
     json_data = json.dumps(data)
-    tile.update_tile('fancy_listing', tileId, json_data)
+    tile.update_tile('fancy_listing_1', tileId, json_data)
     
     ready_config_data = {}
     for index, value in enumerate(config_data):

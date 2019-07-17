@@ -46,6 +46,10 @@ def default_line_config(tileId):
             'rendererOptions':{
                 'smooth': True
             }
+        },
+        'grid': {
+            'background' : '#661a00',
+            'gridLineColor': '#661a00'
         }
     }       
     data_json = json.dumps(tile_config)   
