@@ -48,13 +48,30 @@ def default_line_config(tileId):
             }
         },
         'grid': {
-            #'background' : 'rgba(255,0,0,0.2)',
-            #'gridLineColor': 'rgba(255,0,0,0.2)'
-            'borderColor': 'rgba(255,0,0,0.2)',
-            'borderWidth': 4.0
         }
     }       
     data_json = json.dumps(tile_config)   
+    update_tile_config(tileId, data_json)
+
+
+def line_config_alert(tileId):
+    tile_config = {
+        'seriesDefaults': {
+            'trendline': {
+                'show': True,
+                'color': '#ffffff',
+                'lineWidth': 0.9
+            },
+            'rendererOptions':{
+                'smooth': True
+            }
+        },
+        'grid': {
+            'background' : 'rgba(255,0,0,0.2)',
+            'gridLineColor': 'rgba(255,0,0,0.2)'
+        }
+    }
+    data_json = json.dumps(tile_config)
     update_tile_config(tileId, data_json)
 
 def update_tile(tileName, tileId, content):
