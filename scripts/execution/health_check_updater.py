@@ -2,9 +2,6 @@ import requests as req
 import tile 
 import json
 
-
-
-
 def update_tile(url, tileId, title):
     running = tile.jenkins_running_check(url)
 

@@ -48,8 +48,10 @@ def default_line_config(tileId):
             }
         },
         'grid': {
-            'background' : '#661a00',
-            'gridLineColor': '#661a00'
+            #'background' : 'rgba(255,0,0,0.2)',
+            #'gridLineColor': 'rgba(255,0,0,0.2)'
+            'borderColor': 'rgba(255,0,0,0.2)',
+            'borderWidth': 4.0
         }
     }       
     data_json = json.dumps(tile_config)   
@@ -126,7 +128,6 @@ def line_chart_fetch_data(url, include_finished=True):
 
 def jenkins_running_check(url, resultParam = None):
     rawData = req.get(url)
-
     data = rawData.json()
 
     if data["result"] == resultParam:

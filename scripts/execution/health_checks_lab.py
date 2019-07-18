@@ -30,20 +30,18 @@ def main():
     }
 
     data = []
-    config_data = []
+    config_data = {}
     
-    for title, urls in healthJobs.iteritems():
+    for index, (title, urls) in enumerate(healthJobs.iteritems()):
         healthStatus = get_health_status(urls)
         data.append({"label" : title})
-        config_data.append({"label_color": converter_color[healthStatus], "center": True})
+        config_data[index+1] = {"label_color": converter_color[healthStatus], "center": True}
 
     json_data = json.dumps(data)
     tile.update_tile('fancy_listing_1', tileId, json_data)
-    
-    ready_config_data = {}
-    for index, value in enumerate(config_data):
-        ready_config_data[index+1] = value
 
-    json_data_config = json.dumps(ready_config_data)
+    json_data_config = json.dumps(config_data)
     tile.update_tile_config(tileId, json_data_config)
-main()
+
+if __name__ == "__main__":
+    main()
