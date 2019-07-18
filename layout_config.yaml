@@ -44,9 +44,6 @@ layout:
               title: AOD DAILY
               classes:
 
-            - tile_template: simple_percentage
-              tile_id: precentage_chart_aod_daily
-              title: AOD DAILY
 
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
@@ -54,16 +51,9 @@ layout:
               title: ML66 DAILY
               classes:
 
-            - tile_template: simple_percentage
-              tile_id: precentage_chart_ml66_daily
-              title: ML66 DAILY
         
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
               tile_id: line_chart_swat
               title: SWAT REGRESSION TRIAL
               classes:
-
-            - tile_template: simple_percentage
-              tile_id: precentage_chart_swat
-              title: SWAT REGRESSION TRIAL
