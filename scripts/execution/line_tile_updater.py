@@ -1,7 +1,7 @@
 import tile
 import json
 
-def update_tile(line_chart_id, percentage_chart_id, params, include_ongoing = False):
+def update_tile(line_chart_id, params, include_ongoing = False):
     maas_url = 'https://mwn-maas.seln.wh.rnd.internal.ericsson.com'
     url = '/aggregated-summary?'.join((maas_url, params))
     extractedData = tile.line_chart_fetch_data(url, include_ongoing)
