@@ -1,5 +1,4 @@
-import requests as req
-import tile 
+import tile
 import json
 
 

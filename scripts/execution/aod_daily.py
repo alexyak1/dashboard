@@ -1,6 +1,3 @@
-import requests as req
-import tile 
-import json
 import line_tile_updater as updater
 
 def main():

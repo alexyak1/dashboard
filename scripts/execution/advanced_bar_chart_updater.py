@@ -1,5 +1,4 @@
-import requests as req
-import tile 
+import tile
 import json
 
 def update_tile(advanced_chart_id, params, include_ongoing = False):

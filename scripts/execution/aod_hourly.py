@@ -1,6 +1,3 @@
-import requests as req
-import tile 
-import json
 import advanced_bar_chart_updater as updater
 
 def main():
