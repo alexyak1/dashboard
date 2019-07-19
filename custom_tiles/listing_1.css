@@ -20,3 +20,17 @@
     text-align: center;
     color:white;
 }
+
+.row_1_of_3 .tile > .tile-content > h2 {
+    font-size: 3rem;
+    text-align: left;
+    width: 49%;
+    display: inline-block;
+}
+.tile > .tile-content .result {
+    font-size: 3rem;
+    text-align: right;
+    width: 49%;
+    display: inline-block;
+
+}

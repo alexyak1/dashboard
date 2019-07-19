@@ -6,6 +6,8 @@ API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
 def default_advanced_config(tileId):
     tile_config = {
+        'seriesColors' : [ "rgba(39,174,96,1)", "rgba(192,57,43,1)"],
+        'stackSeries': True,
         'seriesDefaults': {
             'trendline': {
                 'show': False 
@@ -13,7 +15,6 @@ def default_advanced_config(tileId):
             'renderer': 'BarRenderer', 
             'pointLabels': {
                 'show': True, 
-                'location': 'e', 
                 'edgeTolerance': -15
             }, 
             'shadowAngle': 135, 
@@ -66,9 +67,17 @@ def line_config_alert(tileId):
                 'smooth': True
             }
         },
+
         'grid': {
-            'background' : 'rgba(255,0,0,0.2)',
-            'gridLineColor': 'rgba(255,0,0,0.2)'
+            'background' : 'rgba(192,57,43,0.3)',
+            'gridLineColor': 'rgba(192,57,43,0.3)'
+        },
+        'axesDefaults' : {
+            'tickOptions': {
+                'showMark' : False
+            },
+            'pad': 1.5,
+            'showTicksMarks': True
         }
     }
     data_json = json.dumps(tile_config)
@@ -120,6 +129,24 @@ def health_check_color_config(health_check):
 
     return json.dumps(value)
 
+def bar_chart_fetch_data(url,include_finished=False):
+    rawData = req.get(url)
+
+    testCases = rawData.json()
+    testCases.reverse()    
+
+    extractedData = {
+        "passed": [],
+        "failed": [],
+    }
+    for index, testCase in enumerate((testCases)):
+        if not testCase["finished"] and not include_finished:
+            continue 
+        extractedData["passed"].append([index+1, testCase["passed"]])
+        extractedData["failed"].append([index+1, testCase["failed"]])
+        extractedData["rstate"] = testCase["rstateStats"][0]["rstate"] 
+
+    return extractedData
 
 def line_chart_fetch_data(url, include_finished=True):
     rawData = req.get(url)
@@ -130,7 +157,7 @@ def line_chart_fetch_data(url, include_finished=True):
     extractedData = {
         "series": [] 
     }
-    
+
     for index, testCase in enumerate((testCases)):
         if not testCase["finished"] and not include_finished:
             continue 

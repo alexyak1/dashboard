@@ -15,8 +15,8 @@ layout:
               classes:
 
         - col_1_of_3 flip-time-5:
-            - tile_template: line_chart
-              tile_id: line_chart_aod
+            - tile_template: advanced_plot
+              tile_id: advanced_chart_aod
               title: AOD HOURLY
               classes:
 

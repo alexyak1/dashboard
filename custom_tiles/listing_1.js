@@ -21,7 +21,7 @@ function updateTileListing(id, data, meta, tipboard) {
     Tipboard.TileDisplayDecorator.runAllDecorators(tile);
 }
 
-Tipboard.Dashboard.registerUpdateFunction('listing', updateTileListing);
+Tipboard.Dashboard.registerUpdateFunction('listing_1', updateTileListing);
 
 
 function appendListingItem(container, itemText) {
