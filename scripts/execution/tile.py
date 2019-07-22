@@ -4,6 +4,7 @@ API_KEY = '755c3de7f9b94afdbc003349c2d4ba3a'
 API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
+
 def default_advanced_config(tileId):
     tile_config = {
         'seriesColors' : [ "rgba(39,174,96,1)", "rgba(192,57,43,1)"],
@@ -37,25 +38,30 @@ def default_advanced_config(tileId):
     update_tile_config(tileId, data_json)
 
 def default_line_config(tileId):
-    tile_config = {
-        'seriesDefaults': {
-            'trendline': {
-                'show': True,
-                'color': '#ffffff',
-                'lineWidth': 0.9
-            },
-            'rendererOptions':{
-                'smooth': True
-            }
-        },
-        'grid': {
-        }
-    }       
-    data_json = json.dumps(tile_config)   
-    update_tile_config(tileId, data_json)
+    grid = {
+    }
+
+    line_config(tileId, grid)
 
 
 def line_config_alert(tileId):
+    grid = {
+        'background' : 'rgba(192,57,43,0.3)',
+        'gridLineColor': 'rgba(192,57,43,0.3)'
+    }
+
+    line_config(tileId, grid)
+
+def line_config_warning(tileId):
+    grid = {
+        'background' : '#B9AA47',
+        'gridLineColor': '#665000'
+    }
+
+    line_config(tileId, grid)
+
+
+def line_config(tileId, grid):
     tile_config = {
         'seriesDefaults': {
             'trendline': {
@@ -68,38 +74,7 @@ def line_config_alert(tileId):
             }
         },
 
-        'grid': {
-            'background' : 'rgba(192,57,43,0.3)',
-            'gridLineColor': 'rgba(192,57,43,0.3)'
-        },
-        'axesDefaults' : {
-            'tickOptions': {
-                'showMark' : False
-            },
-            'pad': 1.5,
-            'showTicksMarks': True
-        }
-    }
-    data_json = json.dumps(tile_config)
-    update_tile_config(tileId, data_json)
-
-def line_config_warning(tileId):
-    tile_config = {
-        'seriesDefaults': {
-            'trendline': {
-                'show': True,
-                'color': '#ffffff',
-                'lineWidth': 1
-            },
-            'rendererOptions':{
-                'smooth': True
-            }
-        },
-
-        'grid': {
-            'background' : '#B9AA47',
-            'gridLineColor': '#665000'
-        },
+        'grid': grid,
         'axesDefaults' : {
             'tickOptions': {
                 'showMark' : False
