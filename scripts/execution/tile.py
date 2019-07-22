@@ -54,8 +54,8 @@ def line_config_alert(tileId):
 
 def line_config_warning(tileId):
     grid = {
-        'background' : '#B9AA47',
-        'gridLineColor': '#665000'
+        'background' : '#504e17',
+        'gridLineColor': '#78771b'
     }
 
     line_config(tileId, grid)
