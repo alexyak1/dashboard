@@ -83,6 +83,34 @@ def line_config_alert(tileId):
     data_json = json.dumps(tile_config)
     update_tile_config(tileId, data_json)
 
+def line_config_warning(tileId):
+    tile_config = {
+        'seriesDefaults': {
+            'trendline': {
+                'show': True,
+                'color': '#ffffff',
+                'lineWidth': 1
+            },
+            'rendererOptions':{
+                'smooth': True
+            }
+        },
+
+        'grid': {
+            'background' : '#B9AA47',
+            'gridLineColor': '#665000'
+        },
+        'axesDefaults' : {
+            'tickOptions': {
+                'showMark' : False
+            },
+            'pad': 1.5,
+            'showTicksMarks': True
+        }
+    }
+    data_json = json.dumps(tile_config)
+    update_tile_config(tileId, data_json)
+
 def update_tile(tileName, tileId, content):
 
     params = {
@@ -103,19 +131,6 @@ def update_tile_config(tileId, value):
     resp = req.post('/'.join((API_TITLECONFIG_URL, tileId)), data=data_to_push)
     if resp.status_code != 200:
         print(resp.status_code, resp.text)
-
-def percentage_chart_color_config(success_rate):
-
-    value = {}
-    if int(success_rate) > 98:
-        value['big_value_color'] = '#27ae60'
-        value['fading_background'] = False
-    elif int(success_rate) <= 98:
-        value['big_value_color'] = '#c0392b'
-        value['fading_background'] = True
-
-    color_value_json = json.dumps(value)
-    return color_value_json
 
 def health_check_color_config(health_check):
 

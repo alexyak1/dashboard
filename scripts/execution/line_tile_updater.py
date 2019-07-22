@@ -15,7 +15,10 @@ def update_tile(line_chart_id, params, include_ongoing = False):
     data_json = json.dumps(line_chart_content)
     tile.update_tile('line_chart', line_chart_id, data_json)
 
-    if int(success_rate) > 98:
+    if int(success_rate) > 99.5:
         tile.default_line_config(line_chart_id)
-    elif int(success_rate) <= 98:
-        tile.line_config_alert(line_chart_id)
+    elif int(success_rate) <= 99.5:
+        if include_ongoing:
+            tile.line_config_warning(line_chart_id)
+        else:
+            tile.line_config_alert(line_chart_id)
