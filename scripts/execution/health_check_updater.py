@@ -4,28 +4,28 @@ import json
 def update_tile(url, tileId, title):
     running = tile.jenkins_running_check(url)
 
-    healthStatus = "DOWN"
+    health_status = "DOWN"
     if running:
-        healthStatus = "RUNNING"
+        health_status = "RUNNING"
 
-    send_tile_data(title, tileId, healthStatus, running)
+    send_tile_data(title, tileId, health_status, running)
 
 def update_tile_multiple_url(urls, tileId, title):
 
-    healthStatus = "RUNNING"
+    health_status = "RUNNING"
     for url in urls:
         running = tile.jenkins_running_check(url, "SUCCESS")
         if not running:
-            healthStatus = "DOWN"
+            health_status = "DOWN"
             break
 
-    send_tile_data(title, tileId, healthStatus, running)
+    send_tile_data(title, tileId, health_status, running)
 
-def send_tile_data(title, tileId, healthStatus, running):
+def send_tile_data(title, tileId, health_status, running):
     data = {
         "title": title,
         "description": '',
-        "just-value": healthStatus 
+        "just-value": health_status
     }
     
     json_data = json.dumps(data)

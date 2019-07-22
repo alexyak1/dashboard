@@ -24,9 +24,9 @@ def main():
     data = []
     config_data = {}
     for index, (title, urls) in enumerate(healthJobs.iteritems()):
-        healthStatus = get_health_status(urls)
+        health_status = get_health_status(urls)
         data.append({"label" : title})
-        config_data[index+1] = {"label_color": converter_color[healthStatus], "center": True}
+        config_data[index+1] = {"label_color": converter_color[health_status], "center": True}
 
     
     json_data = json.dumps(data)
