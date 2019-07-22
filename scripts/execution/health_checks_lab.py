@@ -16,7 +16,7 @@ def main():
     tileId = "health_checks_triggers"
     converter_color = {True : "#27ae60", False: "#c0392b"}
 
-    healthJobs = {
+    health_jobs = {
         "POOLAREN-SUPERVISOR": ["http://eselnvlx2635.mo.sw.ericsson.se:8080/job/poolaren-supervisor/lastCompletedBuild/api/json?depth=0"],
         "LN LAB INSTRUMENTS HEALTH CHECK": [        
             'https://pdutp-mwn-jenkins02.mo.sw.ericsson.se//job/LN_ECA_servers/lastCompletedBuild/api/json?depth=0',
@@ -32,7 +32,7 @@ def main():
     data = []
     config_data = {}
     
-    for index, (title, urls) in enumerate(healthJobs.iteritems()):
+    for index, (title, urls) in enumerate(health_jobs.iteritems()):
         health_status = get_health_status(urls)
         data.append({"label" : title})
         config_data[index+1] = {"label_color": converter_color[health_status], "center": True}
