@@ -12,7 +12,7 @@ def main():
     tileId = 'ln_lab_health_check'    
     title = 'LN LAB INSTRUMENTS HEALTH CHECK'
             
-    updater.update_tile_multiple_url(urls, tileId, title)
+    updater.update_tile(urls, tileId, title)
     
 
 if __name__ == "__main__":

@@ -1,16 +1,7 @@
 import tile
 import json
 
-def update_tile(url, tileId, title):
-    running = tile.jenkins_running_check(url)
-
-    health_status = "DOWN"
-    if running:
-        health_status = "RUNNING"
-
-    send_tile_data(title, tileId, health_status, running)
-
-def update_tile_multiple_url(urls, tileId, title):
+def update_tile(urls, tileId, title):
 
     health_status = "RUNNING"
     for url in urls:
