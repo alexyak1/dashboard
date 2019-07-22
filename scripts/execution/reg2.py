@@ -6,5 +6,6 @@ def main():
     params = 'ciOfficial=true&program=ML66&createdTimestamp=-3&testLoopType=REG2&aggregated=&column=testLoop&column2=rstate&row=hardware'
     updater.update_tile(line_chart_id, params)
 
+
 if __name__ == "__main__":
     main()
