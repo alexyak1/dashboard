@@ -16,8 +16,8 @@ def main():
     converter_color = {True : "#27ae60", False: "#c0392b"}
 
     healthJobs = {
-        "MLG66 REG1": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/ml66_hourly/lastBuild/api/json?depth=0"],
-        "MLG66 REG2": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/ml66_reg2/lastBuild/api/json?depth=0"],
+        "ML66 REG1": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/ml66_hourly/lastBuild/api/json?depth=0"],
+        "ML66 REG2": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/ml66_reg2/lastBuild/api/json?depth=0"],
         "AOD HOURLY": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/aod_hourly/lastBuild/api/json?depth=0"]
     }
 
