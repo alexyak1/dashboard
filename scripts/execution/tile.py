@@ -47,7 +47,9 @@ def default_line_config(tileId):
 def line_config_alert(tileId):
     grid = {
         'background' : 'rgba(192,57,43,0.3)',
-        'gridLineColor': 'rgba(192,57,43,0.3)'
+        'gridLineColor': 'rgba(192,57,43,0.3)',
+        'borderColor': 'red',
+        'borderWidth': 4.0
     }
 
     line_config(tileId, grid)
@@ -55,7 +57,9 @@ def line_config_alert(tileId):
 def line_config_warning(tileId):
     grid = {
         'background' : '#504e17',
-        'gridLineColor': '#78771b'
+        'gridLineColor': '#78771b',
+        # 'borderColor': 'yellow',
+        # 'borderWidth': 4.0
     }
 
     line_config(tileId, grid)
