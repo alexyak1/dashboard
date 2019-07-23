@@ -26,12 +26,8 @@ layout:
             - tile_template: fancy_listing_1
               tile_id: health_checks
               title: "HEALTH CHECKS"
-        
-        - col_1_of_3:
-            - tile_template: listing_1
-              tile_id: daily_triggers
-              title: "ML66 DAILY - NEXT TRIGGER"
-        - col_1_of_3:
+
+        - col_2_of_3:
             - tile_template: fancy_listing_1
               tile_id: health_checks_triggers
               title: "HEALTH CHECKS"

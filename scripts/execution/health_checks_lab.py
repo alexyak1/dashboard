@@ -26,7 +26,7 @@ def main():
             'https://pdutp-mwn-jenkins02.mo.sw.ericsson.se//job/LN_Serial_servers/lastCompletedBuild/api/json?depth=0',
             'https://pdutp-mwn-jenkins02.mo.sw.ericsson.se//job/LN_ftp_tftp_servers/lastCompletedBuild/api/json?depth=0'
         ],
-        "SLAVE TEST EXECUTOR CONFIGURATION (!!!)": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/aod_hourly/lastBuild/api/json?depth=0"]
+        "SLAVE TEST EXECUTOR CONFIGURATION": ["https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/slaveVerificationMultiJob/lastCompletedBuild/api/json?depth=0"]
     }
 
     data = []

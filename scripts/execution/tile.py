@@ -97,15 +97,19 @@ def update_tile(tileName, tileId, content):
     respons = req.post(API_PUSH_URL, data=params)
     if respons.status_code != 200:
         print(respons.status_code, respons.text)
+    else:
+        print(tileId + " updated")
 
 def update_tile_config(tileId, value):       
     data_to_push = {
         'value': value
     }
-    print(tileId, data_to_push)
+    
     resp = req.post('/'.join((API_TITLECONFIG_URL, tileId)), data=data_to_push)
     if resp.status_code != 200:
         print(resp.status_code, resp.text)
+    else:
+        print(tileId + " config updated")
 
 def health_check_color_config(health_check):
 
