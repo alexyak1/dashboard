@@ -1,4 +1,4 @@
-import line_tile_updater as updater
+import advanced_chart_updater as updater
 
 def main():
     line_chart_id = 'advanced_chart_aod'
