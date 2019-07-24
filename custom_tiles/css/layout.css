@@ -25,6 +25,9 @@ h2 {
     line-height: 1.2em;
     margin-bottom: 0.5em;
     color: #fff;
+    text-align: left;
+    width: 49%;
+    display: inline-block;
 }
 
 h3 {
@@ -175,7 +178,7 @@ table {
 
 .tile > .tile-content .label {
     text-transform: uppercase;
-    color: #B7B7B7;
+    color: #fff;
 }
 
 .tile > .tile-content .with-arrow-result {
@@ -185,6 +188,7 @@ table {
 .tile > .tile-content .big-result {
     font-size: 5rem;
     font-weight: normal;
+    text-align: left;
 }
 
 .tile > .tile-content .small-padding {

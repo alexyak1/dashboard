@@ -1,7 +1,7 @@
 details:
     page_title: Empty Dashboard
 layout:
-    - row_1_of_3:
+    - row_1_of_2:
         - col_1_of_3:
             - tile_template: line_chart_1
               tile_id: line_chart_reg1
@@ -11,44 +11,24 @@ layout:
             - tile_template: line_chart
               tile_id: line_chart_reg2
               title: ML66 REG2
-<<<<<<< HEAD
-              classes:
-
-        - col_1_of_3 flip-time-5:
-            - tile_template: line_chart
-=======
               
         - col_1_of_3:
             - tile_template: advanced_plot
->>>>>>> 188159600226c0ebdef118622287a00be5ff8d7e
               tile_id: advanced_chart_aod
               title: AOD HOURLY
 
-    - row_1_of_3:
+    - row_1_of_2:
         - col_1_of_3:
             - tile_template: fancy_listing_1
               tile_id: health_checks
               title: "HEALTH CHECKS"
 
-        - col_2_of_3:
+        - col_1_of_3:
             - tile_template: fancy_listing_1
               tile_id: health_checks_triggers
               title: "HEALTH CHECKS"
 
-
-    - row_1_of_3:
         - col_1_of_3:
-            - tile_template: line_chart
-              tile_id: line_chart_aod_daily
-              title: AOD DAILY
-              
-        - col_1_of_3:
-            - tile_template: line_chart
-              tile_id: line_chart_ml66_daily
-              title: ML66 DAILY
-              
-        - col_1_of_3:
-            - tile_template: line_chart
-              tile_id: line_chart_swat
-              title: SWAT REGRESSION TRIAL
-              
+            - tile_template: advanced_plot
+              tile_id: test_1
+              title: test

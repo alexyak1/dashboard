@@ -4,6 +4,22 @@ API_KEY = '755c3de7f9b94afdbc003349c2d4ba3a'
 API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
+def block_config(tileId):
+    tile_config = {
+        'seriesDefaults': {
+            'renderer' : 'BlockRenderer'
+        },
+
+        'grid': {
+            'background': '#25282D',
+            'gridLineColor': '#25282D',
+            'borderColor' : '#25282D',
+            'shadow': False
+        }
+        
+    }
+    data_json = json.dumps(tile_config)
+    update_tile_config(tileId, data_json)
 
 def default_advanced_config(tileId):
     tile_config = {
@@ -47,9 +63,7 @@ def default_line_config(tileId):
 def line_config_alert(tileId):
     grid = {
         'background' : 'rgba(192,57,43,0.3)',
-        'gridLineColor': 'rgba(192,57,43,0.3)',
-        'borderColor': 'red',
-        'borderWidth': 4.0
+        'gridLineColor': 'rgba(192,57,43,0.3)'
     }
 
     line_config(tileId, grid)
@@ -57,9 +71,7 @@ def line_config_alert(tileId):
 def line_config_warning(tileId):
     grid = {
         'background' : '#504e17',
-        'gridLineColor': '#78771b',
-        # 'borderColor': 'yellow',
-        # 'borderWidth': 4.0
+        'gridLineColor': '#78771b'
     }
 
     line_config(tileId, grid)
