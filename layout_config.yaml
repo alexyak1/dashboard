@@ -13,9 +13,9 @@ layout:
               title: ML66 REG2
               classes:
 
-        - col_1_of_3 flip-time-5:
+        - col_1_of_3:
             - tile_template: line_chart
-              tile_id: advanced_chart_aod
+              tile_id: aod_hourly
               title: AOD HOURLY
 
     - row_1_of_3:

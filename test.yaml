@@ -3,32 +3,32 @@ details:
 layout:
     - row_1_of_2:
         - col_1_of_3:
-            - tile_template: line_chart
-              tile_id: line_chart_reg1
-              title: ML66 REG1
-              
-        - col_1_of_3:
-            - tile_template: line_chart
-              tile_id: line_chart_reg2
-              title: ML66 REG2
-              
-        - col_1_of_3:
             - tile_template: advanced_plot
               tile_id: advanced_chart_aod
+              title: AOD HOURLY
+              
+        - col_1_of_3:
+            - tile_template: empty
+              tile_id: advanced_chart_aod_1
+              title: AOD HOURLY
+              
+        - col_1_of_3:
+            - tile_template: empty
+              tile_id: advanced_chart_aod_2
               title: AOD HOURLY
 
     - row_1_of_2:
         - col_1_of_3:
-            - tile_template: fancy_listing_1
-              tile_id: health_checks
-              title: "HEALTH CHECKS"
+            - tile_template: empty
+              tile_id: advanced_chart_aod
+              title: AOD HOURLY
 
         - col_1_of_3:
-            - tile_template: fancy_listing_1
-              tile_id: health_checks_triggers
-              title: "HEALTH CHECKS"
+            - tile_template: empty
+              tile_id: advanced_chart_aod_1
+              title: AOD HOURLY
 
         - col_1_of_3:
-            - tile_template: advanced_plot
-              tile_id: test_1
-              title: test
+            - tile_template: empty
+              tile_id: advanced_chart_aod_2
+              title: AOD HOURLY
