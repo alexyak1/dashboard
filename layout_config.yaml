@@ -3,7 +3,7 @@ details:
 layout:
     - row_1_of_3:
         - col_1_of_3:
-            - tile_template: line_chart_1
+            - tile_template: line_chart
               tile_id: line_chart_reg1
               title: ML66 REG1
               
@@ -11,16 +11,10 @@ layout:
             - tile_template: line_chart
               tile_id: line_chart_reg2
               title: ML66 REG2
-<<<<<<< HEAD
               classes:
 
         - col_1_of_3 flip-time-5:
             - tile_template: line_chart
-=======
-              
-        - col_1_of_3:
-            - tile_template: advanced_plot
->>>>>>> 188159600226c0ebdef118622287a00be5ff8d7e
               tile_id: advanced_chart_aod
               title: AOD HOURLY
 

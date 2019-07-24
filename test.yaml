@@ -3,7 +3,7 @@ details:
 layout:
     - row_1_of_2:
         - col_1_of_3:
-            - tile_template: line_chart_1
+            - tile_template: line_chart
               tile_id: line_chart_reg1
               title: ML66 REG1
               

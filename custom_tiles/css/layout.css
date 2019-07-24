@@ -12,13 +12,19 @@ html, body {
 body {
     background: #1c1d1f;
     color: #c7cbd2;
-    font-family:'misolight',"Trebuchet MS", Arial, sans-serif;
+    font-family:'Ericsson','misolight',"Trebuchet MS", Arial, sans-serif;
+
     min-width: 1024px;
     width: 100%;
     min-height: 768px;
     -webkit-font-smoothing: antialiased;
 }
-
+@font-face {
+    font-family: 'Ericsson';
+    src: url('UTM_Ericsson_Capital.ttf?v=4.0.3');
+    font-weight: normal;
+    font-style: normal;
+}
 h2 {
     font-size: 2.4rem;
     font-weight: normal;
@@ -28,6 +34,7 @@ h2 {
     text-align: left;
     width: 49%;
     display: inline-block;
+    
 }
 
 h3 {
