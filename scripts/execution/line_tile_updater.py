@@ -13,10 +13,10 @@ def update_tile(line_chart_id, params, include_ongoing = False):
         'series_list': [extractedData["series"]] 
     }
     data_json = json.dumps(line_chart_content)
-    tile.update_tile('line_chart', line_chart_id, data_json)
+    tile.update_tile('line_chart1', line_chart_id, data_json)
     
     if success_rate > 99.5:
-        tile.default_line_config(line_chart_id)
+        tile.line_config_green(line_chart_id)
     elif success_rate <= 99.5 and include_ongoing:
         tile.line_config_warning(line_chart_id)
     else:

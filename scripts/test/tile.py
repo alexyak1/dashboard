@@ -59,6 +59,14 @@ def default_line_config(tileId):
 
     line_config(tileId, grid)
 
+def line_config_green(tileId):
+    grid = {
+        'tileColor': '#27ae60',
+        'background': '#092d1a',
+        'gridLineColor': 'black',
+    }
+
+    line_config(tileId, grid)
 
 def line_config_alert(tileId):
     grid = {

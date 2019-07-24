@@ -8,8 +8,6 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
     extractedData = tile.bar_chart_fetch_data(url, include_ongoing)
     data = []
     data.append(extractedData["passed"])
-    data.append(extractedData["failed"])
-
 
     #success_rate = round(extractedData["series"][len(extractedData["series"])-1][1], 2)
     line_chart_content = {

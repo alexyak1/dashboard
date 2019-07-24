@@ -95,7 +95,7 @@ def ML66_REG1_line_chart(tileId, url):
         'description': finished + ' ' + str(passed) + '/' + str(total-exluded),
         'series_list': [[list((i+1, int(series[i]))) for i in range(len(series))]]}
     data_json = json.dumps(content) 
-    update_tile('line_chart', tileId, data_json)
+    update_tile('line_chart1', tileId, data_json)
     simple_perc_chart(tileId, success_rate, finished)
 
 def simple_perc_chart(tileId, success_rate, finished):

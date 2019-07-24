@@ -25,7 +25,7 @@ def default_advanced_config(tileId):
         }, 
         'grid': {
             'gridLineColor' : '#25282D',
-            'background' : '#25282D', 
+            'background' : '#25282D',
             'borderColor' : '#25282D'
         },
         'axes': {
@@ -37,16 +37,19 @@ def default_advanced_config(tileId):
     data_json = json.dumps(tile_config)   
     update_tile_config(tileId, data_json)
 
-def default_line_config(tileId):
+def line_config_green(tileId):
     grid = {
+        'tileColor': '#27ae60',
+        'background': '#092d1a',
+        'gridLineColor': 'black',
     }
 
     line_config(tileId, grid)
 
-
 def line_config_alert(tileId):
     grid = {
-        'background' : 'rgba(192,57,43,0.3)',
+        'tileColor': 'rgba(192,57,43,0.3)',
+        'background': 'rgba(192,57,43,0.3)',
         'gridLineColor': 'rgba(192,57,43,0.3)',
         'borderColor': 'red',
         'borderWidth': 4.0
@@ -56,10 +59,9 @@ def line_config_alert(tileId):
 
 def line_config_warning(tileId):
     grid = {
-        'background' : '#504e17',
-        'gridLineColor': '#78771b',
-        # 'borderColor': 'yellow',
-        # 'borderWidth': 4.0
+        'background': '#272700',
+        'gridLineColor': 'black',
+        'tileColor': '#7b7b00'
     }
 
     line_config(tileId, grid)

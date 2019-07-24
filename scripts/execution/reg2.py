@@ -1,4 +1,4 @@
-import line_tile_updater as updater
+import advanced_bar_chart_updater as updater
 
 
 def main():
