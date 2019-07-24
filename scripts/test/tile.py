@@ -61,7 +61,7 @@ def default_line_config(tileId):
 
 def line_config_green(tileId):
     grid = {
-        'tileColor': '#27ae60',
+        'tileColor': '#0FC373',
         'background': '#092d1a',
         'gridLineColor': 'black',
     }
@@ -70,8 +70,8 @@ def line_config_green(tileId):
 
 def line_config_alert(tileId):
     grid = {
-        'background' : 'rgba(192,57,43,0.3)',
-        'gridLineColor': 'rgba(192,57,43,0.3)'
+        'background' : '#FF3232 ',
+        'gridLineColor': '#FF3232 '
     }
 
     line_config(tileId, grid)
@@ -139,7 +139,7 @@ def health_check_color_config(health_check):
 
     value = {}
     if health_check:
-        value["just-value-color"] = "#27ae60"
+        value["just-value-color"] = "#0FC373"
         value['fading_background'] = False
     else:
         value["just-value-color"] = "#c0392b"

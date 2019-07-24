@@ -12,7 +12,7 @@ def get_health_status(urls):
 
 def main():
     tileId = "health_checks"
-    converter_color = {True: "#27ae60", False: "#c0392b"}
+    converter_color = {True: "#0FC373", False: "#c0392b"}
 
     health_jobs = {
         "ML66 REG1": [

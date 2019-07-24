@@ -7,7 +7,7 @@ API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
 
 def default_advanced_config(tileId):
     tile_config = {
-        'seriesColors' : [ "rgba(39,174,96,1)", "rgba(192,57,43,1)"],
+        'seriesColors' : [ "#0FC373", "#FF3232 "],
         'stackSeries': True,
         'seriesDefaults': {
             'trendline': {
@@ -39,7 +39,7 @@ def default_advanced_config(tileId):
 
 def line_config_green(tileId):
     grid = {
-        'tileColor': '#27ae60',
+        'tileColor': '#0FC373',
         'background': '#092d1a',
         'gridLineColor': 'black',
     }
@@ -48,9 +48,9 @@ def line_config_green(tileId):
 
 def line_config_alert(tileId):
     grid = {
-        'tileColor': 'rgba(192,57,43,0.3)',
-        'background': 'rgba(192,57,43,0.3)',
-        'gridLineColor': 'rgba(192,57,43,0.3)',
+        'tileColor': '#FF3232 ',
+        'background': '#FF3232 ',
+        'gridLineColor': '#FF3232 ',
         'borderColor': 'red',
         'borderWidth': 4.0
     }
@@ -121,7 +121,7 @@ def health_check_color_config(health_check):
 
     value = {}
     if health_check:
-        value["just-value-color"] = "#27ae60"
+        value["just-value-color"] = "#0FC373"
         value['fading_background'] = False
     else:
         value["just-value-color"] = "#c0392b"

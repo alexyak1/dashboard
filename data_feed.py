@@ -134,7 +134,7 @@ def color_value(tileId, data):
         'big_value_color': ''
     }
     if int(data) > 98:
-        value['big_value_color'] = '#27ae60'
+        value['big_value_color'] = '#0FC373'
         value['fading_background'] = False
     elif int(data) <= 98:
         value['big_value_color'] = '#c0392b'

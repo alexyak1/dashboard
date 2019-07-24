@@ -14,7 +14,7 @@ def get_health_status(urls):
 
 def main():
     tileId = "health_checks_triggers"
-    converter_color = {True : "#27ae60", False: "#c0392b"}
+    converter_color = {True : "#0FC373", False: "#c0392b"}
 
     health_jobs = {
         "POOLAREN-SUPERVISOR": ["http://eselnvlx2635.mo.sw.ericsson.se:8080/job/poolaren-supervisor/lastCompletedBuild/api/json?depth=0"],
