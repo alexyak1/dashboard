@@ -5,7 +5,7 @@ API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
 
-def default_advanced_config(tileId):
+def advanced_chart_config(tileId, grid):
     tile_config = {
         'seriesColors' : [ "#0FC373", "#FF3232 "],
         'stackSeries': True,
@@ -23,11 +23,7 @@ def default_advanced_config(tileId):
                 'barDirection': 'vertical'
             }
         }, 
-        'grid': {
-            'gridLineColor' : '#25282D',
-            'background' : '#25282D',
-            'borderColor' : '#25282D'
-        },
+        'grid': grid,
         'axes': {
             'xaxis': { 
                 'renderer': 'CategoryAxisRenderer'
@@ -36,6 +32,25 @@ def default_advanced_config(tileId):
     }
     data_json = json.dumps(tile_config)   
     update_tile_config(tileId, data_json)
+
+def advanced_config_alert(tileId):
+    grid = {
+        'tileColor': '#c0392b',
+        'background': '#39110c',
+        'gridLineColor': '#25282D',
+        'borderColor': '#25282D'
+    }
+
+    advanced_chart_config(tileId, grid)
+
+def default_advanced_config(tileId):
+    grid = {
+        'background': '#25282D',
+        'gridLineColor': '#25282D',
+        'borderColor': '#25282D'
+    }
+
+    advanced_chart_config(tileId, grid)
 
 def line_config_green(tileId):
     grid = {
@@ -138,13 +153,15 @@ def bar_chart_fetch_data(url,include_finished=False):
     extractedData = {
         "passed": [],
         "undone": [],
+        "total": []
     }
-    for index, testCase in enumerate((testCases)):
+    for testCase in testCases:
         if not testCase["finished"] and not include_finished:
             continue 
-        extractedData["passed"].append([index+1, testCase["passed"]])
-        extractedData["undone"].append([index+1, testCase["total"] - testCase["passed"]])
-        extractedData["rstate"] = testCase["rstateStats"][0]["rstate"] 
+        extractedData["passed"].append(testCase["passed"])
+        extractedData["undone"].append(testCase["total"] - testCase["passed"])
+        extractedData["rstate"] = testCase["rstateStats"][0]["rstate"]
+        extractedData["total"].append(testCase["total"])
 
     return extractedData
 

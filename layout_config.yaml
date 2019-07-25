@@ -3,18 +3,18 @@ details:
 layout:
     - row_1_of_3:
         - col_1_of_3:
-            - tile_template: advanced_plot
+            - tile_template: advanced_plot1
               tile_id: line_chart_reg1
               title: ML66 REG1
               
         - col_1_of_3:
-            - tile_template: advanced_plot
+            - tile_template: advanced_plot1
               tile_id: line_chart_reg2
               title: ML66 REG2
               classes:
 
         - col_1_of_3:
-            - tile_template: advanced_plot
+            - tile_template: advanced_plot1
               tile_id: aod_hourly
               title: AOD HOURLY
 

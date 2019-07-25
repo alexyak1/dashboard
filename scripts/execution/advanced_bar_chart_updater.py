@@ -6,16 +6,32 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
     url = '/aggregated-summary?'.join((maas_url, params))
    
     extractedData = tile.bar_chart_fetch_data(url, include_ongoing)
-    data = []
-    data.append(extractedData["passed"])
+    passed_series = []
+    failed_series = []
+
+
+    for index,(passed, total) in enumerate(zip(extractedData["passed"], extractedData["total"])):
+        if passed == total:
+            passed_series.append([index+1, passed])
+            failed_series.append([index+1, 0])
+        else:
+            failed_series.append([index+1, passed])
+            passed_series.append([index+1, 0])
 
     #success_rate = round(extractedData["series"][len(extractedData["series"])-1][1], 2)
     line_chart_content = {
         'title': extractedData["rstate"],
         'description': '',
-        'plot_data': data 
+        'plot_data': [passed_series, failed_series]
     }
     data_json = json.dumps(line_chart_content)
-    tile.update_tile('advanced_plot', advanced_chart_id, data_json)
+    tile.update_tile('advanced_plot1', advanced_chart_id, data_json)
 
-    tile.default_advanced_config(advanced_chart_id)
+    total = extractedData['undone'][-1] + extractedData['passed'][-1]
+    
+    percentage = float(extractedData['passed'][-1]) / total * 100 
+
+    if percentage > 99.5:
+        tile.default_advanced_config(advanced_chart_id)
+    else:
+        tile.advanced_config_alert(advanced_chart_id)

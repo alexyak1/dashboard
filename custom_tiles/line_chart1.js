@@ -66,8 +66,8 @@ function simplifyLineData(series_data, user_config) {
 }
 
 function updateTileLine(tileId, data, meta, tipboard) {
+    //inorder to change color of tile
     var allDiv = document.getElementById(tileId);
-
     allDiv.style.backgroundColor = meta.grid.tileColor
 
     var tile = Tipboard.Dashboard.id2node(tileId);
