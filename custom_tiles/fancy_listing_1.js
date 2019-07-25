@@ -41,6 +41,14 @@ FancyListing = {
         $.each(config, function(idx, tileConfig) {
             if (/\d+/.test(idx)) {
                 var item = $(tile).find('.fancy-listing-item')[idx];
+
+                // set link for tile 
+                if (tileConfig.urlForLink) {
+                    item.onclick = function () {
+                        var win = window.open(tileConfig.urlForLink, '_blank');
+                        win.focus();
+                    };
+                }
                 // set color
                 var color = Tipboard.DisplayUtils.replaceFromPalette(
                     tileConfig['label_color']
