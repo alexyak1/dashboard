@@ -1,5 +1,6 @@
 import requests as req
 import json
+from datetime import datetime
 API_KEY = '755c3de7f9b94afdbc003349c2d4ba3a'
 API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
@@ -15,14 +16,20 @@ def advanced_chart_config(tileId, grid):
             }, 
             'renderer': 'BarRenderer', 
             'pointLabels': {
-                'show': True, 
+                'show': False, 
                 'edgeTolerance': -15
             }, 
             'shadowAngle': 135, 
             'rendererOptions': {
                 'barDirection': 'vertical'
             }
-        }, 
+        },
+        'axesDefaults' : {
+            'tickOptions': {
+                'textColor': 'white',
+                'fontSize': '2rem'
+            }
+        },
         'grid': grid,
         'axes': {
             'xaxis': { 
@@ -94,11 +101,12 @@ def line_config(tileId, grid):
                 'smooth': True
             }
         },
-
         'grid': grid,
         'axesDefaults' : {
             'tickOptions': {
-                'showMark' : False
+                'showMark' : False,
+                'textColor': 'white',
+                'fontSize': '2rem'
             },
             'pad': 1.5,
             'showTicksMarks': True
@@ -163,6 +171,7 @@ def bar_chart_fetch_data(url,include_finished=False):
         extractedData["rstate"] = testCase["rstateStats"][0]["rstate"]
         extractedData["total"].append(testCase["total"])
 
+
     return extractedData
 
 def line_chart_fetch_data(url, include_finished=True):
@@ -174,15 +183,19 @@ def line_chart_fetch_data(url, include_finished=True):
     extractedData = {
         "series": [] 
     }
-
+    convert = {0 : '6 may',1 : '7/5',2 : '8/5',3 : 'd',4 : 'e',5 : 'f',6 : 'g',7 : 'h',8 : 'i',9 : 'j',10 : 'k',}
     for index, testCase in enumerate((testCases)):
         if not testCase["finished"] and not include_finished:
             continue 
+        
+        date_object = datetime.strptime(testCase["beginTimestamp"], '%Y-%m-%dT%H:%M:%S.%fZ')
+        date = date_object.strftime("%d/%m")
+        print(date)
         extractedData["passed"] = testCase["passed"]
         extractedData["total"] = testCase["total"]
         extractedData["excluded"] = testCase["excluded"]
         extractedData["rstate"] = testCase["rstateStats"][0]["rstate"] 
-        extractedData["series"].append([index, float(extractedData["passed"])/(extractedData["total"]-extractedData["excluded"])*100])
+        extractedData["series"].append([date, float(extractedData["passed"])/(extractedData["total"]-extractedData["excluded"])*100])
         extractedData["finished"] = testCase["finished"]
     
     return extractedData

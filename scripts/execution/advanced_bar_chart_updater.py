@@ -19,9 +19,10 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
             passed_series.append([index+1, 0])
 
     #success_rate = round(extractedData["series"][len(extractedData["series"])-1][1], 2)
+    percentage = round(float(extractedData['passed'][-1]) / total * 100, 2) 
     line_chart_content = {
-        'title': extractedData["rstate"],
-        'description': '',
+        'title': str(percentage) + '% ' + str(extractedData["rstate"]),
+        'description': str(extractedData['passed'][-1]) + '/' + str(total),
         'plot_data': [passed_series, failed_series]
     }
     data_json = json.dumps(line_chart_content)
@@ -29,7 +30,7 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
 
     total = extractedData['undone'][-1] + extractedData['passed'][-1]
     
-    percentage = float(extractedData['passed'][-1]) / total * 100 
+    
 
     if percentage > 99.5:
         tile.default_advanced_config(advanced_chart_id)
