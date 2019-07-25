@@ -12,7 +12,7 @@ html, body {
 body {
     background: #1c1d1f;
     color: #c7cbd2;
-    font-family:'misolight',"Trebuchet MS", Arial, sans-serif;
+    font-family:'Ericsson','misolight',"Trebuchet MS", Arial, sans-serif;
 
     min-width: 1024px;
     width: 100%;
@@ -21,7 +21,7 @@ body {
 }
 @font-face {
     font-family: 'Ericsson';
-    src: url('UTM_Ericsson_Capital.ttf?v=4.0.3');
+    src: url('TTF/EricssonHilda-Medium.ttf');
     font-weight: normal;
     font-style: normal;
 }
