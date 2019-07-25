@@ -28,7 +28,12 @@ def main():
     for index, (title, urls) in enumerate(health_jobs.iteritems()):
         health_status = get_health_status(urls)
         data.append({"label": title})
-        config_data[index + 1] = {"label_color": converter_color[health_status], "center": True}
+        
+        config_data[index + 1] = {
+            "label_color": converter_color[health_status],
+            "center": True,
+            "urlForLink": urls[0].replace('/lastBuild/api/json?depth=0', '')
+            }
 
     json_data = json.dumps(data)
     tile.update_tile('fancy_listing_1', tileId, json_data)
