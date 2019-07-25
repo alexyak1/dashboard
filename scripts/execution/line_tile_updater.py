@@ -10,6 +10,7 @@ def update_tile(line_chart_id, params, include_ongoing = False):
     line_chart_content = {
         'subtitle': str(success_rate) + '%',
         'description': str(extractedData["passed"]) + '/' + str(extractedData["total"] - extractedData["excluded"]),
+        'subdescription': extractedData["rstate"],
         'series_list': [extractedData["series"]] 
     }
     data_json = json.dumps(line_chart_content)

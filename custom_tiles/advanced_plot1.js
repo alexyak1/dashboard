@@ -27,7 +27,7 @@
 
         var tile, newMeta;
         tile = Tipboard.Dashboard.id2node(tileId);
-        AdvancedPlotTile.setDataByKeys(tileId, data, ['title', 'description']);
+        AdvancedPlotTile.setDataByKeys(tileId, data, ['title', 'description', 'subdescription']);
         newMeta = $.extend(true, {}, meta);
         var renderersSwapper = new RenderersSwapper();
         renderersSwapper.swap(newMeta);

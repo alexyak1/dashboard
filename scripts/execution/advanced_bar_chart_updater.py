@@ -11,18 +11,21 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
 
 
     for index,(passed, total) in enumerate(zip(extractedData["passed"], extractedData["total"])):
+        passed_persent = round(float(passed) / total * 100, 2)
         if passed == total:
-            passed_series.append([index+1, passed])
+            passed_series.append([index+1, passed_persent])
             failed_series.append([index+1, 0])
         else:
-            failed_series.append([index+1, passed])
+
+            failed_series.append([index+1, passed_persent])
             passed_series.append([index+1, 0])
 
     #success_rate = round(extractedData["series"][len(extractedData["series"])-1][1], 2)
     percentage = round(float(extractedData['passed'][-1]) / total * 100, 2) 
     line_chart_content = {
-        'title': str(percentage) + '% ' + str(extractedData["rstate"]),
+        'title': str(percentage) + '%',
         'description': str(extractedData['passed'][-1]) + '/' + str(total),
+        'subdescription': str(extractedData["rstate"]),
         'plot_data': [passed_series, failed_series]
     }
     data_json = json.dumps(line_chart_content)

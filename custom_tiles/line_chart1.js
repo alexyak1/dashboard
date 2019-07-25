@@ -71,7 +71,7 @@ function updateTileLine(tileId, data, meta, tipboard) {
     allDiv.style.backgroundColor = meta.grid.tileColor
 
     var tile = Tipboard.Dashboard.id2node(tileId);
-    Tipboard.Dashboard.setDataByKeys(tileId, data, ['subtitle', 'description']);
+    Tipboard.Dashboard.setDataByKeys(tileId, data, ['subtitle', 'description', 'subdescription']);
     // config creation
     renderersSwapper = new RenderersSwapper();
     renderersSwapper.swap(meta);

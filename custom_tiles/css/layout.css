@@ -563,3 +563,26 @@ div.jqplot-table-legend-swatch-outline {
 .jqplot-axis {
     font: 14px/1 'misolight',"Trebuchet MS", Arial, sans-serif;
 }
+
+
+.execution-subtitle-left {
+    text-align: left;
+    width: 32%; 
+    display: inline-block; 
+    font-size: 3rem; 
+    color: white
+}
+.execution-subtitle-center {
+    text-align: center; 
+    width: 32%; 
+    display: inline-block; 
+    font-size: 3rem; 
+    color: white
+}
+.execution-subtitle-right {
+    text-align: right;
+    width: 32%; 
+    display: inline-block; 
+    font-size: 3rem; 
+    color: white
+}
