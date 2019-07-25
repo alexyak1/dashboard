@@ -17,8 +17,8 @@ def update_tile(line_chart_id, params, include_ongoing = False):
     tile.update_tile('line_chart1', line_chart_id, data_json)
     
     if success_rate > 99.5:
-        tile.line_config_green(line_chart_id)
+        tile.line_config_green(line_chart_id, params)
     elif success_rate <= 99.5 and include_ongoing:
-        tile.line_config_warning(line_chart_id)
+        tile.line_config_warning(line_chart_id, params)
     else:
-        tile.line_config_alert(line_chart_id)
+        tile.line_config_alert(line_chart_id, params)

@@ -21,6 +21,15 @@
     };
 
     function updateTileAdvancedPlot(tileId, data, meta) {
+
+        //create hyper link for tile
+        if(meta.urlForLink) {
+            $("#" + tileId).on('click', function(){
+            console.log(meta.urlForLink);
+                var win = window.open(meta.urlForLink, '_blank');
+                win.focus();
+            });
+        }
         //inorder to change color of tile
         var allDiv = document.getElementById(tileId);
         allDiv.style.backgroundColor = meta.grid.tileColor

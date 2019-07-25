@@ -36,6 +36,6 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
     
 
     if percentage > 99.5:
-        tile.default_advanced_config(advanced_chart_id)
+        tile.default_advanced_config(advanced_chart_id, params)
     else:
-        tile.advanced_config_alert(advanced_chart_id)
+        tile.advanced_config_alert(advanced_chart_id, params)

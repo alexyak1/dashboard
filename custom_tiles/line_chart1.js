@@ -66,6 +66,15 @@ function simplifyLineData(series_data, user_config) {
 }
 
 function updateTileLine(tileId, data, meta, tipboard) {
+
+    //create hyper link for tile
+    if(meta.urlForLink) {
+        $("#" + tileId).on('click', function(){
+            var win = window.open(meta.urlForLink, '_blank');
+            win.focus();
+        });
+    }
+
     //inorder to change color of tile
     var allDiv = document.getElementById(tileId);
     allDiv.style.backgroundColor = meta.grid.tileColor

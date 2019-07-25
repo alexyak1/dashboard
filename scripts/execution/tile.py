@@ -6,7 +6,9 @@ API_URL = 'http://localhost:7272/api/v0.1/{}'.format(API_KEY)
 API_PUSH_URL = '/'.join((API_URL, 'push'))
 API_TITLECONFIG_URL = '/'.join((API_URL, 'tileconfig'))
 
-def advanced_chart_config(tileId, grid):
+def advanced_chart_config(tileId, grid, param):
+    url = 'https://mwn-maoni.seln.wh.rnd.internal.ericsson.com/test-run-matrix?'
+
     tile_config = {
         'seriesColors' : [ "#0FC373", "#FF3232 "],
         'stackSeries': True,
@@ -30,6 +32,7 @@ def advanced_chart_config(tileId, grid):
                 'fontSize': '2rem'
             }
         },
+        'urlForLink': url + param,
         'grid': grid,
         'axes': {
             'xaxis': { 
@@ -40,7 +43,7 @@ def advanced_chart_config(tileId, grid):
     data_json = json.dumps(tile_config)   
     update_tile_config(tileId, data_json)
 
-def advanced_config_alert(tileId):
+def advanced_config_alert(tileId, param):
     grid = {
         'tileColor': '#c0392b',
         'background': '#39110c',
@@ -48,27 +51,27 @@ def advanced_config_alert(tileId):
         'borderColor': '#25282D'
     }
 
-    advanced_chart_config(tileId, grid)
+    advanced_chart_config(tileId, grid, param)
 
-def default_advanced_config(tileId):
+def default_advanced_config(tileId, param):
     grid = {
         'background': '#25282D',
         'gridLineColor': '#25282D',
         'borderColor': '#25282D'
     }
 
-    advanced_chart_config(tileId, grid)
+    advanced_chart_config(tileId, grid, param)
 
-def line_config_green(tileId):
+def line_config_green(tileId, param):
     grid = {
         'tileColor': '#0FC373',
         'background': '#092d1a',
         'gridLineColor': 'black',
     }
 
-    line_config(tileId, grid)
+    line_config(tileId, grid, param)
 
-def line_config_alert(tileId):
+def line_config_alert(tileId, param):
     grid = {
         'tileColor': '#FF3232 ',
         'background': '#FF3232 ',
@@ -77,19 +80,21 @@ def line_config_alert(tileId):
         'borderWidth': 4.0
     }
 
-    line_config(tileId, grid)
+    line_config(tileId, grid, param)
 
-def line_config_warning(tileId):
+def line_config_warning(tileId, param):
     grid = {
         'background': '#272700',
         'gridLineColor': 'black',
         'tileColor': '#7b7b00'
     }
 
-    line_config(tileId, grid)
+    line_config(tileId, grid, param)
 
 
-def line_config(tileId, grid):
+def line_config(tileId, grid, param):
+    url = 'https://mwn-maoni.seln.wh.rnd.internal.ericsson.com/test-run-matrix?'
+
     tile_config = {
         'seriesDefaults': {
             'trendline': {
@@ -101,6 +106,7 @@ def line_config(tileId, grid):
                 'smooth': True
             }
         },
+        'urlForLink': url + param,
         'grid': grid,
         'axesDefaults' : {
             'tickOptions': {
@@ -183,14 +189,12 @@ def line_chart_fetch_data(url, include_finished=True):
     extractedData = {
         "series": [] 
     }
-    convert = {0 : '6 may',1 : '7/5',2 : '8/5',3 : 'd',4 : 'e',5 : 'f',6 : 'g',7 : 'h',8 : 'i',9 : 'j',10 : 'k',}
     for index, testCase in enumerate((testCases)):
         if not testCase["finished"] and not include_finished:
             continue 
         
         date_object = datetime.strptime(testCase["beginTimestamp"], '%Y-%m-%dT%H:%M:%S.%fZ')
         date = date_object.strftime("%d/%m")
-        print(date)
         extractedData["passed"] = testCase["passed"]
         extractedData["total"] = testCase["total"]
         extractedData["excluded"] = testCase["excluded"]
