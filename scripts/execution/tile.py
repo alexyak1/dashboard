@@ -37,6 +37,10 @@ def advanced_chart_config(tileId, grid, param):
         'axes': {
             'xaxis': { 
                 'renderer': 'CategoryAxisRenderer'
+            },
+            'yaxis': {
+                'min': 0,
+                'max': 100
             }
         }
     }
@@ -55,6 +59,7 @@ def advanced_config_alert(tileId, param):
 
 def default_advanced_config(tileId, param):
     grid = {
+        #'tileColor': '#25282D',
         'background': '#25282D',
         'gridLineColor': '#25282D',
         'borderColor': '#25282D'

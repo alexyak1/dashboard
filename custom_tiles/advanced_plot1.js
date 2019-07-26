@@ -20,7 +20,7 @@
         }
     };
 
-    function updateTileAdvancedPlot(tileId, data, meta) {
+    function updateTileAdvancedPlot(tileId, data, meta, tipboard) {
 
         //create hyper link for tile
         if(meta.urlForLink) {
@@ -32,7 +32,13 @@
         }
         //inorder to change color of tile
         var allDiv = document.getElementById(tileId);
-        allDiv.style.backgroundColor = meta.grid.tileColor
+        if(meta.grid.tileColor){
+            allDiv.style.backgroundColor = meta.grid.tileColor;
+        }
+        else{
+            allDiv.style.backgroundColor = tipboard.color.tile_background;
+        }
+
 
         var tile, newMeta;
         tile = Tipboard.Dashboard.id2node(tileId);

@@ -77,7 +77,14 @@ function updateTileLine(tileId, data, meta, tipboard) {
 
     //inorder to change color of tile
     var allDiv = document.getElementById(tileId);
-    allDiv.style.backgroundColor = meta.grid.tileColor
+    if(meta.grid.tileColor){
+        //allDiv.style.backgroundColor = tipboard.color.tile_background;
+        allDiv.style.backgroundColor = meta.grid.tileColor;
+    }
+    else{
+        allDiv.style.backgroundColor = tipboard.color.tile_background;
+    }
+
 
     var tile = Tipboard.Dashboard.id2node(tileId);
     Tipboard.Dashboard.setDataByKeys(tileId, data, ['subtitle', 'description', 'subdescription']);
