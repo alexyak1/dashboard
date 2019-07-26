@@ -25,10 +25,16 @@
         //create hyper link for tile
         if(meta.urlForLink) {
             $("#" + tileId).on('click', function(){
-            console.log(meta.urlForLink);
                 var win = window.open(meta.urlForLink, '_blank');
                 win.focus();
             });
+            $("#" + tileId).mouseenter(function(){
+                $("#" + tileId).css( 'cursor', 'pointer' );
+            });
+            $("#" + tileId).mouseleave(function(){
+                $("#" + tileId).css( 'cursor', 'default' );
+            });
+
         }
         //inorder to change color of tile
         var allDiv = document.getElementById(tileId);

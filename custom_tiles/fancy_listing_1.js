@@ -48,6 +48,14 @@ FancyListing = {
                         var win = window.open(tileConfig.urlForLink, '_blank');
                         win.focus();
                     };
+                    /*
+                    item.onmouseenter = function(){
+                        item.css('cursor', 'pointer');
+                    };
+                    item.onmouseleave = function(){
+                        item.css('cursor', 'default');
+                    };
+                    */
                 }
                 // set color
                 var color = Tipboard.DisplayUtils.replaceFromPalette(

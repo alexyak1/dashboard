@@ -15,7 +15,12 @@ def get_health_status(urls):
 def main():
     tileId = "health_checks_triggers"
     converter_color = {True : "#0FC373", False: "#c0392b"}
-
+    hyper_links = ['https://fem203-eiffel024.mo.sw.ericsson.se:8443/jenkins/job/slaveVerificationMultiJob/',
+         'https://pdutp-mwn-jenkins02.mo.sw.ericsson.se/view/ln_lab_instruments_health_check/', 
+         'http://eselnvlx2635.mo.sw.ericsson.se:8080/view/Poolaren/job/poolaren-supervisor/',
+         'https://tp-mwn-pt-webui.mo.sw.ericsson.se/ptvaadinui/benches?property=Maintenance&lab=LN_6609B'
+    ]
+        
     health_jobs = {
         "POOLAREN-SUPERVISOR": ["http://eselnvlx2635.mo.sw.ericsson.se:8080/job/poolaren-supervisor/lastCompletedBuild/api/json?depth=0"],
         "LN LAB INSTRUMENTS HEALTH CHECK": [        
@@ -35,11 +40,19 @@ def main():
     for index, (title, urls) in enumerate(health_jobs.iteritems()):
         health_status = get_health_status(urls)
         data.append({"label" : title})
-        config_data[index+1] = {"label_color": converter_color[health_status], "center": True}
+        config_data[index+1] = {
+            "label_color": converter_color[health_status], 
+            "center": True,
+            "urlForLink":hyper_links[index]
+        }
 
     color, current, benches_with_jira = get_test_benches()
     data.append({"label": "LN 6609B - BENCHES IN MAINTENANCE: " + str(current) + benches_with_jira})
-    config_data[len(config_data)+1] = {"label_color": converter_color[color], "center": True}
+    config_data[len(config_data)+1] = {
+        "label_color": converter_color[color], 
+        "center": True, 
+        "urlForLink": hyper_links[3]
+        }
     json_data = json.dumps(data)
     tile.update_tile('fancy_listing_1', tileId, json_data)
 
@@ -62,22 +75,18 @@ def get_test_benches():
     benchesInMaintenanceWithoutJira = []
 
     for bench in listOfBenchesInfo:
-        
         reg = re.search("NODECIEX-[0-9]+", bench["comment"], re.IGNORECASE)
         if reg:
             benchesInMaintenanceWithJira.append(bench['name'])
         else:
             benchesInMaintenanceWithoutJira.append(bench['name'])
 
-
-
-    curr =len(benchesInMaintenanceWithoutJira)
+    curr = len(benchesInMaintenanceWithoutJira)
     if len(benchesInMaintenanceWithoutJira) == 0:
         is_green_tile = True    
     else:
         is_green_tile = False
-
-
+    
     benches_with_jira = " benches with jira: " + str(len(benchesInMaintenanceWithJira))
     return is_green_tile, curr, benches_with_jira
 

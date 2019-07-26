@@ -73,12 +73,18 @@ function updateTileLine(tileId, data, meta, tipboard) {
             var win = window.open(meta.urlForLink, '_blank');
             win.focus();
         });
+        $("#" + tileId).mouseenter(function(){
+            $("#" + tileId).css( 'cursor', 'pointer' );
+        });
+        $("#" + tileId).mouseleave(function(){
+            $("#" + tileId).css( 'cursor', 'default' );
+        });
     }
 
     //inorder to change color of tile
     var allDiv = document.getElementById(tileId);
     if(meta.grid.tileColor){
-        //allDiv.style.backgroundColor = tipboard.color.tile_background;
+
         allDiv.style.backgroundColor = meta.grid.tileColor;
     }
     else{

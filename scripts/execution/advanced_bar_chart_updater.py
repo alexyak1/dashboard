@@ -33,8 +33,6 @@ def update_tile(advanced_chart_id, params, include_ongoing = False):
 
     total = extractedData['undone'][-1] + extractedData['passed'][-1]
     
-    
-
     if percentage > 99.5:
         tile.default_advanced_config(advanced_chart_id, params)
     else:
